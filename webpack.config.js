@@ -1,11 +1,15 @@
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { merge } = require('webpack-merge')
+const { merge } = require('webpack-merge');
+const path = require('path');
 
 const getCommonConfig = (isProd) => ({
   resolve: {
-    extensions: ['.js', '.tsx', 'ts', '.json']
+    extensions: ['.js', '.tsx', 'ts', '.json'],
+    alias:{
+      components: path.resolve(__dirname, 'src/components')
+    }
   },
   entry: { app: "./src/index" },
   module: {
